@@ -1,3 +1,12 @@
 /* body {
     background-color: blue;
 } */
+
+.stat-col {
+    padding-left: 15%;
+}
+
+#singerPhoto {
+    width: 90%;
+    height: 80%;
+}
