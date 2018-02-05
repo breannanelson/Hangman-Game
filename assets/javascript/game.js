@@ -11,13 +11,68 @@ var artist = [
     },
     {
         name: "beyonce",
-        photo: PHOTO_PATH + "beyonce-photo.jpg",
+        photo: PHOTO_PATH + "beyonce-photo.gif",
         audio: AUDIO_PATH + "beyonce-audio.mp3"
     },
     {
         name: "drake",
-        photo: PHOTO_PATH + "drake-photo.jpg",
+        photo: PHOTO_PATH + "drake-photo.gif",
         audio: AUDIO_PATH + "drake-audio.mp3"
+    },
+    {
+        name: "eminem",
+        photo: PHOTO_PATH + "eminem-photo.jpg",
+        audio: AUDIO_PATH + "eminem-audio.mp3"
+    },
+    {
+        name: "pink",
+        photo: PHOTO_PATH + "pink-photo.gif",
+        audio: AUDIO_PATH + "pink-audio.mp3"
+    },
+    {
+        name: "prince",
+        photo: PHOTO_PATH + "prince-photo.jpg",
+        audio: AUDIO_PATH + "prince-audio.mp3"
+    },
+    {
+        name: "shakira",
+        photo: PHOTO_PATH + "shakira-photo.jpg",
+        audio: AUDIO_PATH + "shakira-audio.mp3"
+    },
+    {
+        name: "sia",
+        photo: PHOTO_PATH + "sia-photo.jpg",
+        audio: AUDIO_PATH + "sia-audio.mp3"
+    },
+    {
+        name: "rihanna",
+        photo: PHOTO_PATH + "rihanna-photo.jpg",
+        audio: AUDIO_PATH + "rihanna-audio.mp3"
+    },
+    {
+        name: "lorde",
+        photo: PHOTO_PATH + "lorde-photo.gif",
+        audio: AUDIO_PATH + "lorde-audio.mp3"
+    },
+    {
+        name: "macklemore",
+        photo: PHOTO_PATH + "macklemore-photo.gif",
+        audio: AUDIO_PATH + "macklemore-audio.mp3"
+    },
+    {
+        name: "elvis",
+        photo: PHOTO_PATH + "elvis-photo.gif",
+        audio: AUDIO_PATH + "elvis-audio.mp3"
+    },
+    {
+        name: "khalid",
+        photo: PHOTO_PATH + "khalid-photo.png",
+        audio: AUDIO_PATH + "khalid-audio.mp3"
+    },
+    {
+        name: "halsey",
+        photo: PHOTO_PATH + "halsey-photo.gif",
+        audio: AUDIO_PATH + "halsey-audio.mp3"
     }
 ];
 
@@ -27,12 +82,10 @@ var currentArtist = {
     audio: AUDIO_PATH + "default-audio.mp3"
 };
 
-// Gets Link for Theme Song
+// Gets Link for Song
 var audioElement = document.createElement("audio");
 audioElement.setAttribute("src", currentArtist.audio);
 audioElement.play();
-
-
 
 
 // will be used to increment wins
@@ -61,20 +114,24 @@ function selectName() {
 // function will output to the screen the updated stats
 function reWriteStats() {
     var stats =
-        "<p>Wins: " + wins + "</p>" +
+        "<p>Name an artist:<br>" + underlineWord + "</p>" +
         "<p>Letters Already Guessed: " + wrongLetter + "</p>" +
         "<p>Number of Guesses Remaining: " + numGuessesRemaining + "</p>" +
-        "<p>Current Word:<br>" + underlineWord + "</p>" +
+        "<p>Wins: " + wins + "</p>" +
         "<p>Losses : " + losses + "</p>";
 
     document.getElementById('gameStats').innerHTML = stats;
 }
 
-function displayName() {
-    document.getElementById('singerName').innerHTML = artist[index].name;
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function updateAfterWin (ref) {
+function displayName() {
+    document.getElementById('singerName').innerHTML = capitalizeFirstLetter(artist[index].name);
+}
+
+function updateAfterWin(ref) {
     currentAritist = artist[ref];
     audioElement.setAttribute("src", currentAritist.audio);
     audioElement.play();
@@ -82,9 +139,7 @@ function updateAfterWin (ref) {
 }
 
 
-
-
-// Theme Button
+// Song Button
 $(".play-button").on("click", function () {
     audioElement.play();
 });
@@ -128,7 +183,7 @@ underlineWord = generateUnderline(artist[index].name);
 
 // prints stats
 reWriteStats();
-
+console.log(artist[index].name);
 
 document.onkeyup = function (event) {
     letter = event.key;
@@ -158,11 +213,13 @@ document.onkeyup = function (event) {
                 displayName();
                 updateAfterWin(index);
                 resetStats();
+                console.log(artist[index].name);
                 // alert("You have won!");
             }
             if (wrongLetter.length === 12) {
                 alert("You have lost!");
                 losses++;
+                console.log(artist[index].name);
                 resetStats()
 
             }

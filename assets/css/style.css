@@ -1,12 +1,33 @@
-/* body {
-    background-color: blue;
-} */
+body {
+    background: url("../images/footer_lodyas.png");
+}
 
 .stat-col {
-    padding-left: 15%;
+    padding-left: 10%;
+    color: #ffffff;
 }
 
 #singerPhoto {
     width: 90%;
     height: 80%;
 }
+
+#singerName {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#gameStats {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 30px;
+    text-shadow: 3px 3px 0px rgba(71, 10, 10, 0.5);
+}
+
+.heading {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* font-family: 'Fjalla One', sans-serif; */
+    color: #ffffff;
+    text-shadow: 3px 3px 0px rgba(71, 10, 10, 0.5);
+}
+
